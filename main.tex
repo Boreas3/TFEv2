@@ -1,0 +1,289 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage[linkcolor=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage[version=4]{mhchem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\usepackage{markdown}
+\usepackage[toc,page]{appendix}
+\usepackage[table,xcdraw]{xcolor}
+\newcommand{\citep}[1]{\cite{#1}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\makeatletter
+\newcommand{\tocfill}{\cleaders\hbox{$\m@th \mkern\@dotsep mu . \mkern\@dotsep mu$}\hfill}
+\makeatother
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}\ \tocfill}}
+\newenvironment{abbreviations}{\begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}%
+                                              \setlength{\itemsep}{0pt}}}{\end{list}}
+
+\makeatletter
+\patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{}% Removes space above \chapter head
+\patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{}% Removes space above \chapter* head
+\makeatother
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{\textsc{\nouppercase{{\leftmark}}\quad\thepage}}
+\fancypagestyle{plain}{%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+}
+\setlength{\headheight}{52pt}    
+
+\begin{document}
+\begin{titlepage}
+
+\centering
+\includegraphics{logo_ulg.jpg}%
+
+\vspace*{1cm}
+\hrulefill
+\begin{center}\bfseries\Huge
+Interpolation of component characteristic maps for thermodynamic cycle assessment
+\end{center}
+\hrulefill
+\vspace*{0.2cm}
+\begin{center}\Large
+\textit{Master thesis submitted in partial fulfillment of the requirements
+for the degree of Master in Electromechanical Engineering}
+\end{center}
+\begin{center}\Large
+\textit{By Heylen Martin}
+\end{center}
+\vspace*{0.2cm}
+
+\begin{center}\bfseries\large
+
+University of Liege - Faculty of Applied Sciences \\
+Academic year: 2019-2020\\
+Promotor: Hilleweart Koen
+\end{center}
+\begin{flushright}
+
+\end{flushright} 
+
+\end{titlepage}
+
+\setstretch{1.5}
+\input{Abstract}
+\input{Acknowledgment}
+\setstretch{1.2}
+\pagestyle{empty}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\chapter*{List of Acronyms}
+\begin{abbreviations}
+\item[NTU] \textbf{N}umber of \textbf{T}ransfer \textbf{U}nit
+\item[TIT]  \textbf{T}urbine \textbf{I}nlet \textbf{T}emperature
+\item[LP] \textbf{L}ow \textbf{P}ressure
+\item[MP] \textbf{M}ow \textbf{P}ressure
+\item[GT] \textbf{G}as \textbf{T}urbine
+\item[RGT] \textbf{R}egenerative \textbf{G}as \textbf{T}urbine
+\item[IGT] \textbf{I}ntercooler \textbf{G}as \textbf{T}urbine
+\item[IHGT] \textbf{I}ntercooler-Re\textbf{h}eat \textbf{G}as \textbf{T}urbine
+\item[IRGT] \textbf{I}ntercooler-\textbf{R}egenerative \textbf{G}as \textbf{T}urbine
+\item[IRHGT] \textbf{I}ntercooler-\textbf{R}egenerative-Re\textbf{h}eat \textbf{G}as \textbf{T}urbine
+\item[EFGT] \textbf{E}xternally-\textbf{F}ired \textbf{G}as \textbf{T}urbine
+\end{abbreviations}
+
+\chapter*{Units (SI \cite{Nist})}
+\begingroup
+\setlength{\tabcolsep}{40pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.2} % Default value: 1
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lll}
+        m & meter\\
+        kg & kilogram\\
+        mole & mole & $\sim 6\cdot 10^{23}$ elementary entities\\
+        s & second\\
+        RPM & Rotation Per Second\\
+        \degree C & Celsius\\
+        K & Kelvin & 273.15 K = 0\degree C\\
+        N & Newton & kg$\cdot$ m/s$^2$\\
+        J & Joule & N$\cdot$ m\\
+        W & Watt & J/s\\
+        Pa & Pascal & N/m$^2$
+    \end{tabular}
+\end{table}
+\endgroup
+\chapter*{List of Symbols}
+\begingroup
+\setlength{\tabcolsep}{30pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.2} % Default value: 1
+\begin{longtable}[c]{lll}
+$T$          & Temperature                                 & \degree C or K \\
+\endfirsthead
+%
+\endhead
+%
+$p$          & Pressure                                    & Pa             \\
+$Dp$         & Pressure drop factor                        & Pa             \\
+$\mu$        & Dynamic viscosity                           & Pa$\cdot$s     \\
+$t$          & time                                        & s              \\
+$z$          & Altitude                                    & m              \\
+$D$          & Diameter                                    & m              \\
+$P$          & Perimeter                                   & m              \\
+$A$          & Area                                        & m$^2$          \\
+$\mathrm{A}$ & Global heat transfer area                   & m$^2$          \\
+$\mathrm{U}$ & Global heat transfer coefficient            & W/m$^2\cdot$K  \\
+$\mathrm{R}$ & Global thermal resistance                   & K/W            \\
+$R_w$        & Wall resistance                             & K/W            \\
+$\mathrm{V}$ & Volume                                      & m$^3$          \\
+$\mathrm{v}$ & Specific volume                             & m$^3$/kg       \\
+$\dot{\mathrm{V}}$ &  Volumetric flow rate                 & m$^3$/s        \\
+$v$          & absolute velocity                           & m/s            \\
+$w_r$        & relative velocity                           & m/s            \\
+$u_r$        & tip blade velocity of the rotor             & m/s            \\
+$c$          & sound speed                                 & m/s            \\
+$N$          & Rotational speed                            & RPM            \\
+g            & Standard gravity                            & m/s$^2$        \\
+$\rho$       & Density                                     & kg/m$^3$       \\
+$m$          & Mass                                        & kg             \\
+$\dot{m}$    & Mass flow rate                              & kg/s           \\
+$n$          & Number of mole                              & mole           \\
+$w$          & Molar flow rate                             & mole/s         \\
+$MM$         & Molar mass                                  & kg/mole        \\
+$E$          & Total energy                                & J              \\
+$U$          & Internal energy                             & J              \\
+$KE$         & Kinetic energy                              & J              \\
+$PE$         & Potential energy                            & J              \\
+$Q$          & Heat transfer                               & J              \\
+$W$          & Work                                        & J              \\
+$u$          & Specific internal energy                    & J/kg           \\
+$h$          & Enthalpy                                    & J/kg           \\
+$i$          & Rothalpy                                    & J/kg           \\
+$a$          & Helmholtz function                          & J/kg           \\
+$g$          & Gibbs function                              & J/kg           \\
+$s$          & Entropy                                     & J/kg$\cdot$K   \\
+$c_p$        & Specific heat capacity at constant pressure & J/kg$\cdot$K   \\
+$c_v$        & Specific heat capacity at constant volume   & J/kg$\cdot$K   \\
+$R$          & Universal gas constant                      & J/mole$\cdot$K \\
+$r$          & Specific gas constant                       & J/kg$\cdot$K   \\
+$\dot{Q}$    & Heat transfer rate                          & W              \\
+$\dot{W}$    & Power                                       & W              \\
+$\lambda_c$  & Thermal conductivity                        & W/m$\cdot$K    \\
+$h_{conv}$   & Convective heat transfer coefficient        &  W/m$^2\cdot$K \\
+$\Pi$        & Pressure ratio                              & \multicolumn{1}{c}{-} \\
+$k$          & Heat capacity ratio                         & \multicolumn{1}{c}{-} \\
+$\eta$, $\varepsilon$       & Efficiency                   & \multicolumn{1}{c}{-} \\
+$\phi$ & Head coefficient                                  & \multicolumn{1}{c}{-} \\
+$\psi$ & Flow coefficient                                  & \multicolumn{1}{c}{-} \\
+$M$ & Mach number                                          & \multicolumn{1}{c}{-} \\ 
+$F$ & degradation factor                                   & \multicolumn{1}{c}{-} \\
+$x$ & molar fraction                                       & \multicolumn{1}{c}{-} \\
+$y$ & mass fraction                                        & \multicolumn{1}{c}{-} \\
+
+\end{longtable}
+\endgroup
+\chapter*{Sub/superscripts}
+\begingroup
+\setlength{\tabcolsep}{40pt} % Default value: 6pt
+\renewcommand{\arraystretch}{1.2} % Default value: 1
+\begin{longtable}[c]{ll}
+$s$ & system\\
+\endfirsthead
+%
+\endhead
+%
+$in$ & inlet\\
+$out$ & outlet\\
+$ref$ & reference\\
+$amb$ & ambient\\
+$nom$ & nominal\\
+$is$ & isentropic\\
+$rev$ & reversible\\
+$b$ & boundary\\
+$tt$ & total to total\\
+$t$ & turbine\\
+$c$ & compressor\\
+$p$ & pump\\
+$cc$ & combustion chamber\\
+$shaft$ & shaft\\
+$gen$ & generator\\
+$whx$ & water heat exchanger\\
+$re$ & regenerator\\
+$duct$ & duct\\
+$chimney$ & chimney\\
+$air$ & air\\
+$fuel$ & fuel\\
+$gas$ & gas\\
+$water$ & water\\
+$comp$ & composition\\
+$0$ & stagnation or total
+\end{longtable}
+\endgroup
+ \pagestyle{fancy}
+\setstretch{1.5}
+%%%%%%%%%%%%%%%%%%
+%% Chapter 1:   %%
+%% Introduction %%
+%%%%%%%%%%%%%%%%%%
+
+\input{Chapitre_1/chapitre_1}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapitre 2:                 %%
+% Notion of thermodynamics    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_2/chapitre_2}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 3:                 %%
+%% Principles of thermodynamics%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_3/chapitre_3}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 4:                 %%
+%% Thermodynamics components   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_4/chapitre_4}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 5:                 %%
+%% Brayton_cycle               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_5/chapitre_5}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 6:                 %%
+%% Code structure   		   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_6/chapitre_6}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 7:                 %%
+%% Brayton cycle modeling      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_7/chapitre_7}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chapitre 8:                 %%
+%% Conclusion     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{Chapitre_8/chapitre_8}
+\newpage
+\input{Annexes}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv, bibli}
+\end{document}

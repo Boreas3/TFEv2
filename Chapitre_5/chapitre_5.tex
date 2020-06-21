@@ -1,0 +1,272 @@
+\graphicspath{{Chapitre_5/Images/}}
+\chapter{Brayton cycle}\label{C5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                         %%%%%
+%%%%% Brayton cycle chapitre 5 %%%%%
+%%%%%                         %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quad\, In the introduction, the simplest configuration for the Brayton gas cycle has been defined as being a cycle successively composed of a compressor, a combustion chamber and a turbine. This simple configuration is called Gas Turbine or GT. 
+
+The previous chapter \ref{C4} described individually these components by providing the required theoretical notions to be able to analyze their performances. Now, the components will be considered together as a thermodynamic cycle to assess the performances of the Gas Turbine and of its existing variants.
+
+\section{Gas Turbine}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                         %%%%%
+%%%%%     <<Gas Turbine>>     %%%%%
+%%%%%                         %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quad\, The Gas Turbine (GT) is the most basic configuration of the Brayton cycle. As it is illustrated in the Figure \ref{fig:C5_BraytonGT}, the three main components are the compressor (COMP), the combustion chamber (CC) and the turbine (TURB).
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.15] {GT}
+\caption{Gas Turbine (GT)}
+\label{fig:C5_BraytonGT}
+\end{figure}
+
+The compressor and the turbine are both installed on the same shaft. Since there aren't any gearbox, the rotational speed of both turbomachines is the same. The generator (G) is also attached to the shaft to convert the generated mechanical power into electricity. 
+When the machine starts, the generator becomes a motor to provide the required energy to help the turbine. Indeed, at low rotational speed the power consumed by the compressor is usually greater than the power produced by the turbine alone. 
+
+
+
+As it is illustrated in the Figure \ref{fig:C5_BraytonGT}, the cycle can be decomposed into eight thermodynamic states. For each connection between two elements, there are piping that will induce some pressure drops. For each of these states, the temperature and pressure are measured in order to fully characterized the state. The Table \ref{tab:C5_thermo_state_GT} includes the different states emphasized on Figure \ref{fig:C5_BraytonGT}.
+\begin{longtable}[c]{@{}lcc@{}}
+\caption{Thermodynamic states - gas cycle (GT)}
+\label{tab:C5_thermo_state_GT}\\
+\toprule
+\textbf{State n\degree} & $\mathbf{T}$      & $\mathbf{p}$      \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+\textbf{0}              & $T_0$ = $T_{ref}$ & $p_0$ = $p_{ref}$ \\
+\textbf{1}              & $T_1$ = $T_{amb}$ & $p_1$ = $p_{amb}$ \\
+\textbf{2}              & $T^0_2=T_1$       & $p^0_2\leq p_1$   \\
+\textbf{3}              & $T^0_3>T^0_2$     & $p^0_3>p^0_2$     \\
+\textbf{4}              & $T_4=T^0_3$       & $p_4\leq p^0_3$   \\
+\textbf{5}              & $T_5>>T_4$        & $p_5\leq p_4$     \\
+\textbf{6}              & $T^0_6=T_5$       & $p^0_6\leq p_5$   \\
+\textbf{7}              & $T^0_7<T^0_6$     & $p^0_7<p^0_6$     \\
+\textbf{8}              & $T_8=T^0_7$       & $p_8=p_1<p^0_7$   \\* \bottomrule
+\end{longtable} 
+Where the state \textbf{0} corresponds to the reference conditions. It is worth noting that for the compressor and the turbine, the stagnation quantities are used. The reason is that in this work, method to compute the Mach number hasn't been considered. This is the reason why the pressure ratios and the isentropic efficiency that will be considered for the compressor and the turbine are based on total quantities.
+
+For each of the mentioned states, five thermodynamic properties are evaluated. Namely the temperature, pressure, enthalpy, entropy and density. For the last variable, the ideal gas equation (\ref{eq:C2_GP}) from the chapter \ref{C2} is used. 
+
+A graphical representation of these states can be performed by drawing some thermodynamic diagrams. Here, the p-v and T-s diagrams have been drawn in the Figures \ref{fig:C5_pv_GT} and \ref{fig:C5_Ts_GT} respectively. 
+
+The choice of the T-s diagram instead of the h-s diagram is motivated by the fact that temperatures are quantities that have an easier interpretation. Since only ideal gases are considered, the enthalpy variation is equivalent to the temperature variation multiplied by the heat capacity at constant pressure.
+
+The diagrams have been obtained using the computer code that will be described in the next chapters. For now, let's just assume that the program is just a black box.
+
+
+\begin{figure}[H]
+     \centering
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{pv_GT}
+         \caption{p-v diagram}
+         \label{fig:C5_pv_GT}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Ts_GT}
+         \caption{T-s diagram}
+         \label{fig:C5_Ts_GT}
+     \end{subfigure}
+        \caption{Thermodynamic diagrams - Gas Turbine}
+        \label{fig:C5_thermo_diagram_GT}
+\end{figure}
+
+These two diagrams have been obtained considering ideal components. An ideal component is characterized by the efficiency of 100\%. This means that there aren't any pressure drops, the isentropic efficiency $\eta_{is}$ of the compressor and the turbine is equal to 100\%, and the combustion chamber efficiency $\eta_{cc}$ is also equal to 100\%.
+
+As it can be noticed, the graphs are open. Indeed, the exhaust gas from the outlet of the turbine is returned to the environment with all its energy. The transformation from the state \textbf{8} to the state \textbf{1} would correspond to the return at the ambient conditions of the exhaust gas. 
+
+The net work provided by the Brayton cycle corresponds to the area inscribed in the loop \textbf{1}$\rightarrow$\textbf{8}$\rightarrow$\textbf{1}. Mathematically, it is obtained by computing one of the two integrals (\ref{eq:C5_W}) and (\ref{eq:C5_Ws}). These two integrals are respectively associated to the p-v and T-s diagrams.
+
+\begin{subequations}  
+\setstretch{1}
+\begin{align}
+    W_{net} = \oint_{cycle}pdv\label{eq:C5_W}\\
+    W_{net} = \oint_{cycle}Tds\label{eq:C5_Ws}
+\end{align}
+\end{subequations}
+
+Now considering the T-s diagram, it shows the effect of the isentropic efficiency regarding to the evolution of the entropy during the compression and the expansion. Here, since the isentropic efficiency have been set to 100\%, the entropy at the beginning and the end of these transformations are equal. If real components were considered, the entropy would increase during the compression and the expansion.
+
+In the T-s diagram are also represented the iso-pressure lines. Both the compressor and the turbine operate between 1 bar and 3.1 bars. It can be  proved that the thermal efficiency of the ideal GT cycle is proportional to the pressure ratio across the compressor. 
+
+The thermal efficiency of any Brayton cycle is defined as being the ratio (\ref{eq:C5_etath}) between the net power output $\dot{W}_{net}$ and the heat transfer rate from coming from the injected fuel.
+
+\begin{equation}
+    \setstretch{1}
+    \eta_{th} = \frac{\dot{W}_{net}}{\dot{m}_{fuel}\cdot HCV_{fuel}} \label{eq:C5_etath}
+\end{equation}
+Where $HCV_{fuel}$ is the low heat calorific value (J/kg) of the fuel.
+
+Considering the presented ideal GT cycle, the thermal efficiency $\eta_{th,GT} =24$\%, and the net power output of the cycle is equal to 42.05 kW. The net power output is defined as being the power $\dot{W}_t$ produced by the turbine minus the power $\dot{W}_c$ consumed by the compressor.
+
+To compute these two powers, it is required to calculate the work involved during the expansion and the compression. Both can be obtained by computing the variation of the total enthalpy between the inlet and the outlet of the two turbomachines (relations (\ref{eq:C5_Wt}) and (\ref{eq:C5_Wc})) (respectively).
+
+\begin{subequations}
+\setstretch{1}
+\begin{align}
+    W_t = h^0_6 - h^0_7 = c_p\cdot(T^0_6 - T^0_7)\label{eq:C5_Wt}\\
+    W_c = h^0_2 - h^0_3 = c_p\cdot(T^0_2 - T^0_3)\label{eq:C5_Wc}
+\end{align}
+\end{subequations}
+Then, the powers $\dot{W}_t$ and $\dot{W}_c$ are obtained by multiplying the works by the mass flow rate going through each turbomachine. Due to the injection of fuel $\dot{m}_{fuel}$ between the compressor and the turbine, the mass flow rate of gas $\dot{m}_{gas}=\dot{m}_{air}+\dot{m}_{fuel}$ in the turbine is higher than the mass flow rate of air $\dot{m}_{air}$ .
+
+
+It can be noticed that at the exhaust of the cycle, the thermal energy available within the gas is still non-negligible. This energy at high temperature has a great potential and could be utilized to improve the cycle and its thermal efficiency. A possible way of improvement will be given in the following section.\newpage
+
+\section{Regenerative Gas Turbine}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                         %%%%%
+%%%%%    <<regenerative>>     %%%%% 
+%%%%%     <<Gas Turbine>>     %%%%%
+%%%%%                         %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quad\, As seen in the previous section, the gas cycle does not have a really high efficiency. This is due to the huge amount of energy available in the exhaust gas that is wasted. However, this high-level energy could be used to preheat the air before entering the combustion chamber. 
+
+This is done by using a heat exchanger called regenerator. By adding a regenerator, the amount of energy to be provided to the combustion chamber to reach the same target temperature will be smaller since the inlet temperature of the air will be higher.
+
+This variant of the Gas Turbine cycle is called Regenerative Gas Turbine (RGT) cycle. A schematic of this cycle is given in the Figure \ref{fig:C5_RGT}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.15]{RGT}
+\caption{Regenerative GT (RGT)}
+\label{fig:C5_RGT}
+\end{figure}
+
+Similarly to the GT cycle, to maximum thermal efficiency $\eta_{is,RGT}$ of the cycle is achieved by considering all the components as ideal. In addition to the turbomachines and the combustion chamber, the efficiency of the heat exchanger will be set at 100\%. 
+
+The states from \textbf{1} to \textbf{12} can be represented by the p-v and T-s  diagrams. The two diagrams are included in the set of Figures \ref{fig:C5_thermo_diagram_RGT}.
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{pv_RGT}
+         \caption{p-v diagram}
+         \label{fig:C5_pv_RGT}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Ts_RGT}
+         \caption{T-s diagram}
+         \label{fig:C5_Ts_RGT}
+     \end{subfigure}
+        \caption{Thermodynamic diagrams - Regenerative Gas Turbine}
+        \label{fig:C5_thermo_diagram_RGT}
+\end{figure}
+
+As shown in the T-s diagram, there is as expected a heat transfer from the hot gas to the cold air. This heat transfer allows using the available energy from the hot gas to heat-up the air from the compressor. Thanks to this heat transfer, the combustion chamber only needs to raise the temperature of the air from 630\degree C to 920\degree C. 
+
+The reduction of the difference of temperatures between the inlet and the outlet of the combustion chamber results in a significant reduction of the consumption of fuel. For the same mass flow rate of air, the excess of air increased from 2 to 7. Thus, the mass flow rate of fuel $\dot{m}_{fuel}$ injected is decreased compared to the cycle without a regenerator.  
+
+Thanks to the regenerator, the thermal efficiency of the cycle is really improved. Indeed, from 24\% for the ideal GT cycle, the efficiency of the Regenerative Gas Turbine cycle is now 65\%. The net power output is here equal to 41.35 kW. 
+
+It can be noticed that the net power produced by the RGT is slightly lower than for the Gas Turbine, while the work respectively absorbed and produced by the compressor and the turbine remains identical. The reason is that the gas mass flow rate in the turbine is smaller due to the reduction of the amount of fuel injected in the combustion chamber. Therefore, the power produced during the expansion is a little bit smaller than previously.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Chapitre_5/Images/Efficiency_ideal_Brayton_regen.png}
+    \caption{Thermal efficiency of GT vs. RGT}
+    \label{fig:C5_eff_RGT-GT}
+\end{figure}
+
+The addition of the regenerator is only interesting when the pressure ratio involved is relatively small. Indeed, it can be demonstrated that the thermal efficiency of the RGT cycle varies as the inverse of the pressure ratio. On the other hand, the efficiency of the Gas Turbine cycle without regenerator increases with the pressure ratio. 
+
+The Figure \ref{fig:C5_eff_RGT-GT} shows that, for a pressure ratio beyond 12.5, the cycle with regenerator has a thermal efficiency lower than the cycle without regenerator. 
+
+\section{Intercooler-Regenerative-Reheat GT}
+\quad\ The two cycles described previously are characterized by the usage of one compressor and one turbine. However, it happens that for some applications, the pressure ratio between the high and the ambient pressures is too large to be handled by one stage of turbomachines.
+
+A type of Gas Turbine that is often considered to response to this problem is the Intercooler-Regenerative-Reheat Gas Turbine (IRHGT). For the IRHGT, the compression and the expansion are split between a low pressure (LP) and high pressure (HP) compressor and turbine (respectively). The low-pressure and high-pressure compressors and turbines are usually on the two different shafts due to the difference of rotational speed. The IRHGT cycle is depicted in the Figure \ref{fig:C5_IRHGT}.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.15]{IRHGT}
+\caption{Intercooler-Regenerative-Reheat GT (IRHGT)}
+\label{fig:C5_IRHGT}
+\end{figure}
+
+Between the two compression stages, a water heat exchanger called intercooler is installed to cool down the compressed air from the LP compressor before going into the HP compressor. The addition of an intercooler will allow to increase the \textbf{density} of the compressed thanks to the cooling. Indeed, when the air is compressed, its temperature is increased. However, at the same pressure, a hot gas will have a smaller density than cold gas. 
+
+The opposite reasoning stands for the two stages of expansion. After the first stage, the expanded gas enters a second combustion chamber to be reheated. The reheat is performed to increase the \textbf{specific volume} of the gas before entering the low-pressure turbine. 
+
+
+The p-v and T-s diagrams have been drawn for the case of an ideal IRHGT cycle. The two diagrams are in the Figures \ref{fig:C5_pv_IRHGT} and \ref{fig:C5_Ts_IRHGT}.
+
+\begin{figure}[h]
+     \centering
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{pv_IRHGT}
+         \caption{p-v diagram}
+         \label{fig:C5_pv_IRHGT}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.4\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{Ts_IRHGT}
+         \caption{T-s diagram}
+         \label{fig:C5_Ts_IRHGT}
+     \end{subfigure}
+        \caption{Thermodynamic diagrams - Intercooler-Regenerative-Reheat Gas Turbine}
+        \label{fig:C5_thermo_diagram_IRHGT}
+\end{figure}
+
+As depicted in the diagram T-s, four levels of pressure are involved. First, there is the low-pressure (LP) corresponding to the pressure of the environment. From the state \textbf{2} to the state \textbf{3}, the LP compressor will raise the pressure of the air to a medium pressure (MP) level. 
+
+At the end of this first stage of compression, the air that has been heated due to the compression is cooled down to 50\degree C using an intercooler. It results from the cooling a reduction of the entropy of the air. Then, the cooled air is compressed again by a high pressure (HP) compressor to reach the target pressure of 6 bars.
+
+After the two stages of compression, the air is first heat-up in the regenerator by the hot gas from the LP turbine, then by the high-pressure combustion chamber to reach to desired Turbine Inlet Temperature (or TIT) of 920\degree C. 
+
+The expansion from 6 bar to 1 bar is split into two stages. Here, there is a degree of free regarding the choice of the expansion ratio of the HP and LP turbines. One of the can be fixed in order to maximized the efficiency or the power output of the system. 
+
+After the expansion from the high pressure to a medium pressure is done, the expanded gas is reheated to the TIT of 920\degree C using a second combustion chamber. Then, the exhaust gas goes through the low-pressure turbine to decrease its pressure to 1 bar. Finally, the remaining high quality heat in the gas is used to heat-up the air from the high-pressure compressor.
+
+For this particular IRHGT cycle, the thermal efficiency of the ideal IRHGT is equal 65\% and the associated net power output of 68 kW. It can be noticed that the efficiency of the cycle is identical to the one of the RGT cycle. However, the net power produced by this enhanced cycle is 26 kW higher. 
+
+\section{Brayton cycle - variants}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                         %%%%%
+%%%%%      <<Variants>>       %%%%%
+%%%%%                         %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quad\ Aside the Gas Turbine, two variants have been described in the previous section. However, there exists many other configurations that can be studied. There exists Brayton gas cycle where only the compression is staged, or cycle where the expansion is performed before the combustion. This variant is called Externally-Fired Gas Turbine (EFGT) and reduces the stress on the turbine induced by the fumes.
+
+Also, once the fumes are at the exit of the cycle, it remains low quality heat (below 200\degree C except for the GT cycle) that can be used to heat-up water for sanitary usage.
+
+The Table \ref{tab:C5_inputconfig} gives a non-exhaustive list of existing variant of the gas cycles. A diagram for each cycle can be found in the appendix\ref{annex:Brayton_variant}.
+\begin{longtable}[c]{ll}
+\caption{Variant of the Gas Turbine cycle}
+\label{tab:C5_inputconfig}\\
+\toprule
+\textbf{Acronym} & \textbf{Type - Name}                   \\* \midrule
+\endfirsthead
+%
+\endhead
+%
+\bottomrule
+\endfoot
+%
+\endlastfoot
+%
+GT                           & Gas Turbine                                 \\
+RGT                          & Regenerative Gas Turbine                    \\
+IGT                          & Intercooler Gas Turbine                     \\
+IHGT                         & Intercooler-Reheat Gas Turbine              \\
+IRGT                         & Intercooler-Regenerative Gas Turbine        \\
+IRHGT                        & Intercooler-Regenerative-Reheat Gas Turbine \\
+EFGT                         & Externally-Fired Gas Turbine                \\* \bottomrule
+\end{longtable}
+

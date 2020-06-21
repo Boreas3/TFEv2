@@ -1,0 +1,260 @@
+% Encoding: UTF-8
+
+@Book{2017,
+  title     = {Fundamentals and Applications of Supercritical Carbon Dioxide (SCO2) Based Power Cycles},
+  publisher = {Woodhead Publishing},
+  year      = {2017},
+  author    = {K. Brun and P. Friedman and R. Dennis},
+  isbn      = {978-0-08-100804-1},
+}
+
+@Book{Boles2006,
+  title     = {Thermodynamics: An Engineering Approach IN SI UNITS, 5th Edition (Mechanical Engineering Series)},
+  publisher = {Tata McGraw-Hill},
+  year      = {2006},
+  author    = {Michael A. Boles and Yunus A. Cengel},
+  isbn      = {978-0070606593},
+}
+
+@Misc{Lawson,
+  author = {Barrie Lawson},
+  title  = {Gas Turbine Power Plants},
+  year   = {2019},
+  url    = {https://www.mpoweruk.com/gas_turbines.htm},
+}
+
+@Misc{Watt,
+  author = {Nicolás Pérez},
+  title  = {Watt double-acting steam engine},
+  year   = {1859},
+  url    = {https://commons.wikimedia.org/w/index.php?curid=195711},
+}
+
+@Manual{thermoApp_1,
+  title  = {Thermodynamique appliquée et introduction aux machines thermiques - Chapitre 1},
+  author = {Vincent Lemort},
+  month  = oct,
+  year   = {2017},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEdMZtQ9dj1MgMIUg?e=vf1QOY},
+}
+
+@Manual{thermoApp_2,
+  title  = {Thermodynamique appliquée et introduction aux machines thermiques - Chapitre 2},
+  author = {Vincent Lemort},
+  month  = oct,
+  year   = {2017},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEdUesWv1xfGRJqY8?e=pJAfYG},
+}
+
+@Manual{thermoApp_3,
+  title  = {Thermodynamique appliquée et introduction aux machines thermiques - Chapitre 3},
+  author = {Vincent Lemort},
+  month  = oct,
+  year   = {2017},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEdvow-s3cvHQCCAo?e=TbwwUk},
+}
+
+@Book{GregoryNellis2015,
+  author    = {Gregory Nellis, Sanford Klein},
+  publisher = {Cambridge University Press},
+  title     = {Heat Transfer},
+  year      = {2015},
+  isbn      = {0521881072},
+  date      = {2015-10-02},
+  ean       = {9780521881074},
+  pagetotal = {1150},
+  url       = {https://www.ebook.de/de/product/7871349/gregory_nellis_sanford_klein_heat_transfer.html},
+}
+
+@Manual{Dewallef2019,
+  title  = {Centrales thermiques et cogénération - Chapitre 1},
+  author = {Pierre Dewallef},
+  month  = may,
+  year   = {2019},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEeFeQ-1L34jP2aco?e=uF4ceQ},
+}
+
+@Book{2015,
+  author    = {engel, Yunus},
+  publisher = {McGraw-Hill Education},
+  title     = {Thermodynamics : an engineering approach},
+  year      = {2015},
+  address   = {New York},
+  isbn      = {9780073398174},
+}
+
+@ARTICLE{2020SciPy-NMeth,
+       author = {{Virtanen}, Pauli and {Gommers}, Ralf and {Oliphant},
+         Travis E. and {Haberland}, Matt and {Reddy}, Tyler and
+         {Cournapeau}, David and {Burovski}, Evgeni and {Peterson}, Pearu
+         and {Weckesser}, Warren and {Bright}, Jonathan and {van der Walt},
+         St{\'e}fan J.  and {Brett}, Matthew and {Wilson}, Joshua and
+         {Jarrod Millman}, K.  and {Mayorov}, Nikolay and {Nelson}, Andrew
+         R.~J. and {Jones}, Eric and {Kern}, Robert and {Larson}, Eric and
+         {Carey}, CJ and {Polat}, {\.I}lhan and {Feng}, Yu and {Moore},
+         Eric W. and {Vand erPlas}, Jake and {Laxalde}, Denis and
+         {Perktold}, Josef and {Cimrman}, Robert and {Henriksen}, Ian and
+         {Quintero}, E.~A. and {Harris}, Charles R and {Archibald}, Anne M.
+         and {Ribeiro}, Ant{\^o}nio H. and {Pedregosa}, Fabian and
+         {van Mulbregt}, Paul and {Contributors}, SciPy 1. 0},
+        title = "{SciPy 1.0: Fundamental Algorithms for Scientific
+                  Computing in Python}",
+      journal = {Nature Methods},
+      year = "2020",
+      volume={17},
+      pages={261--272},
+      adsurl = {https://rdcu.be/b08Wh},
+      doi = {https://doi.org/10.1038/s41592-019-0686-2},
+}
+
+@article{Bell2014,
+    author = {Bell, Ian H. and Wronski, Jorrit and Quoilin, Sylvain and Lemort, Vincent},
+    title = {Pure and Pseudo-pure Fluid Thermophysical Property Evaluation and
+             the Open-Source Thermophysical Property Library CoolProp},
+    journal = {Industrial \& Engineering Chemistry Research},
+    volume = {53},
+    number = {6},
+    pages = {2498--2508},
+    year = {2014},
+    doi = {10.1021/ie4033999},
+    URL = {http://pubs.acs.org/doi/abs/10.1021/ie4033999},
+    eprint = {http://pubs.acs.org/doi/pdf/10.1021/ie4033999}
+    }
+
+@Manual{Hillewaert2019,
+  author = {Koen Hillewaert},
+  month  = oct,
+  title  = {Turbomachines},
+  year   = {2019},
+  url = {https://1drv.ms/b/s!AsKaUx8j1THEeiFk_WUxNdeLdtc?e=KsKFZS},
+}
+
+@Article{Ghorbanian2009,
+  author    = {K. Ghorbanian and M. Gholamrezaei},
+  journal   = {Applied Energy},
+  title     = {An artificial neural network approach to compressor performance prediction},
+  year      = {2009},
+  month     = {jul},
+  number    = {7-8},
+  pages     = {1210--1221},
+  volume    = {86},
+  doi       = {10.1016/j.apenergy.2008.06.006},
+  publisher = {Elsevier {BV}},
+}
+
+@Manual{Leonard2018,
+  title  = {Réduction des polluants en combustion - Chapitre 1},
+  author = {Angélique Léonard},
+  month  = dec,
+  year   = {2018},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEfOerW7iwsZhqfoc?e=5UhhaX},
+}
+
+@Manual{Ngendakumana2018,
+  title  = {Echangeurs de chaleur : aspects fondamentaux et constructifs - Chapitre 1/2},
+  author = {Philippe Ngendakumana},
+  month  = sep,
+  year   = {2018},
+  url    = {https://1drv.ms/b/s!AsKaUx8j1THEfpw5DZhW_Szzg9o?e=saJ5no},
+}
+
+@book{van1995python, 
+  title={Python tutorial}, 
+  author={Van Rossum, Guido and Drake Jr, Fred L}, 
+  year={1995}, 
+  publisher={Centrum voor Wiskunde en Informatica Amsterdam, The Netherlands} 
+}
+
+@Electronic{Nist,
+  author       = {Nist},
+  organization = {Nist},
+  title        = {International System of Units (SI)},
+  url          = {https://physics.nist.gov/cuu/Units/units.html},
+}
+
+@Manual{Quoilin2008,
+  title  = {An introduction to thermodynamics applied toOrganic Rankine Cycles},
+  author = {Sylvain Quoilin},
+  month  = nov,
+  year   = {2008},
+  url    = {http://www.labothap.ulg.ac.be/staff/squoilin/files/ORC_thermodynamics_SQ081126.pdf},
+}
+@String{pub-ANL     = "Argonne National Laboratory"}
+@String{pub-ANL:adr = "Argonne, IL, USA"}
+
+@Article{Li2018,
+  author    = {Xu Li and Chuanlei Yang and Yinyan Wang and Hechun Wang and Xianghuan Zu and Yongrui Sun and Song Hu},
+  journal   = {Royal Society Open Science},
+  title     = {Compressor map regression modelling based on partial least squares},
+  year      = {2018},
+  month     = {aug},
+  number    = {8},
+  pages     = {172454},
+  volume    = {5},
+  doi       = {10.1098/rsos.172454},
+  publisher = {The Royal Society},
+}
+@TechReport{More:minpack,
+  author =       "Jorge J. Mor{\'{e}} and Burton S. Garbow 
+                 and Kenneth E. Hillstrom",
+  title =        "User Guide for {MINPACK-1}",
+  number =       "ANL-80-74",
+  institution =  pub-ANL,
+  address =      pub-ANL:adr,
+  month =        aug,
+  year =         "1980",
+}
+@Book{Dixon2013,
+  author    = {Dixon, S. L.},
+  publisher = {Elsevier LTD, Oxford},
+  title     = {Fluid Mechanics and Thermodynamics of Turbomachinery},
+  year      = {2013},
+  isbn      = {0124159540},
+  date      = {2013-11-12},
+  ean       = {9780124159549},
+  pagetotal = {512},
+  url       = {https://www.ebook.de/de/product/20030601/s_l_dixon_fluid_mechanics_and_thermodynamics_of_turbomachinery.html},
+}
+
+@Electronic{EncyclopaediaBritannica2018,
+  author       = {Encyclopædia Britannica,},
+  month        = jul,
+  organization = {Encyclopædia Britannica, inc.},
+  title        = {Commonwealth of Independent States},
+  url          = {https://www.britannica.com/topic/Commonwealth-of-Independent-States},
+  year         = {2018},
+}
+
+<<<<<<< HEAD
+@Electronic{Dwyer2014,
+  author = {Kevin Dwyer},
+  month  = may,
+  title  = {Drawing Boundaries In Python},
+  url    = {http://blog.thehumangeo.com/2014/05/12/drawing-boundaries-in-python/},
+  year   = {2014},
+}
+
+=======
+@Misc{NASA,
+  author = {Bonnie J. McBride, Michael J. Zehe, and Sanford Gordon},
+  month  = sep,
+  title  = {NASA Glenn Coefficients for CalculatingThermodynamic Properties of Individual Species},
+  year   = {2002},
+  file   = {:C\:/OneDrive/OneDrive - MITIS SA/MonDrive/NASA.pdf:PDF},
+  url    = {http://www.grc.nasa.gov/WWW/CEAWeb/},
+}
+
+@book{reid1977properties,
+  title={The Properties of Gases and Liquids},
+  author={Reid, R.C. and Reid, R.D. and Prausnitz, J.M. and Sherwood, T.K. and Poling, B.E.},
+  isbn={9780070517905},
+  lccn={76042204},
+  series={Chemical engineering series},
+  url={https://books.google.be/books?id=ZnAfAAAAMAAJ},
+  year={1977},
+  publisher={McGraw-Hill}
+}
+
+
+>>>>>>> 48714531f9d93c6294a67578b3db7e97a27c8976
+@Comment{jabref-meta: databaseType:bibtex;}
